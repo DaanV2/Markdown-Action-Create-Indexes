@@ -2,7 +2,7 @@ name: 'Markdown action: create indexes'
 description: 'Creates indexes pages for a markdown styled wiki'
 inputs:
   folder:
-    description: 'The folder path to start at',
+    description: The folder path to start at
     required: false,
     default: $GITHUB_WORKSPACE
 outputs:

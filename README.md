@@ -4,11 +4,9 @@ The github action that creates index pages for your project, the changes still n
 
 ## Inputs
 
-TODO
-
-## Outputs
-
-TODO
+**folder**:
+The folder path to start at
+defaults to: $GITHUB_WORKSPACE
 
 ## Example usage
 
