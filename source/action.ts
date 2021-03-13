@@ -1,5 +1,4 @@
 import core from '@actions/core';
-import github from '@actions/github';
 import { CreateFolder } from './traverse';
 import * as fs from 'fs';
 
