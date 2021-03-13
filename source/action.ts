@@ -1,16 +1,17 @@
 import { CreateFolder } from './traverse';
 import * as fs from 'fs';
 
-const corexp = require('@actions/core');
+import corexp from '@actions/core';
 
 //Start code
 try {
 	// This should be a token with access to your repository scoped in as a secret.
 	// The YML workflow will need to set myToken with the GitHub Secret Token
 	// token: ${{ secrets.GITHUB_TOKEN }}
-	const Token = corexp.getInput('token');
 	const Folder = corexp.getInput('folder');
 	var result = false;
+
+	console.log('starting on: ' + Folder);
 
 	if (fs.existsSync(Folder)) {
 		result = CreateFolder(Folder);

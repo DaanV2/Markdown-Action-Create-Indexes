@@ -32,11 +32,11 @@ export function CreateFolder(folder: string): boolean {
 		for (let I = 0; I < childern.length; I++) {
 			//grab item
 			const child = childern[I];
+			let subfolder = path.join(folder, child);
 
 			//if child is an directory or not
-			if (fs.statSync(child).isDirectory()) {
+			if (fs.statSync(subfolder).isDirectory()) {
 				//Create index page, if succesfull we create a reference
-				let subfolder = path.join(folder, child);
 
 				if (CreateFolder(subfolder)) {
 					SubFolders.push(`- [${child}](./${child}/index.md)`);
