@@ -4,7 +4,6 @@ inputs:
   folder:
     description: The folder path to start at
     required: true
-    default: ${{github.}}
 runs:
   using: 'node12'
   main: 'dist/index.js'
