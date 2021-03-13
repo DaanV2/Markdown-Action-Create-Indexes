@@ -47,7 +47,7 @@ export function CreateFolder(folder: string): boolean {
 			}
 			else {
 				//If the child is a .md page create a reference
-				if (child.endsWith('.md')) {
+				if (child.endsWith('.md') && child != 'index.md') {
 					Documents.push(`- [${child.substring(0, child.length - 3)}](${child})`);
 				}
 			}
