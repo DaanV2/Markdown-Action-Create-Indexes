@@ -8,4 +8,4 @@ inputs:
 outputs:
 runs:
   using: 'node12'
-  main: 'out/action.js'
+  main: 'dist/index.js'
