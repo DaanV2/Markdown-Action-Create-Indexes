@@ -422,13 +422,14 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core_1 = __importDefault(__nccwpck_require__(227));
 const traverse_1 = __nccwpck_require__(784);
 const fs = __importStar(__nccwpck_require__(747));
+const corexp = core_1.default;
 //Start code
 try {
     // This should be a token with access to your repository scoped in as a secret.
     // The YML workflow will need to set myToken with the GitHub Secret Token
     // token: ${{ secrets.GITHUB_TOKEN }}
-    const Token = core_1.default.getInput('token');
-    const Folder = core_1.default.getInput('folder');
+    const Token = corexp.getInput('token');
+    const Folder = corexp.getInput('folder');
     var result = false;
     if (fs.existsSync(Folder)) {
         result = traverse_1.CreateFolder(Folder);
@@ -441,7 +442,7 @@ try {
     }
     else {
         console.log('failure');
-        core_1.default.setFailed('no pages were created');
+        corexp.setFailed('no pages were created');
     }
 }
 catch (error) {
@@ -450,7 +451,12 @@ catch (error) {
         message = error.message;
     else
         message = JSON.stringify(error);
-    core_1.default.setFailed(message);
+    if (corexp)
+        corexp.setFailed(message);
+    else {
+        console.log(message);
+        process.exit(1);
+    }
 }
 //# sourceMappingURL=action.js.map
 

@@ -1,8 +1,5 @@
-import core from '@actions/core';
 import * as fs from 'fs';
-import { countReset } from 'node:console';
 import path from 'path';
-
 
 const Template = `# {$HEADER$}
 
