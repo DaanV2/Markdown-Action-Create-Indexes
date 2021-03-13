@@ -5,7 +5,6 @@ inputs:
     description: The folder path to start at
     required: false,
     default: $GITHUB_WORKSPACE
-outputs:
 runs:
   using: 'node12'
   main: 'dist/index.js'
