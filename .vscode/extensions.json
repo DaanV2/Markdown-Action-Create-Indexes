@@ -1,0 +1,6 @@
+{
+	"recommendations": [
+		"cschleiden.vscode-github-actions",
+		"esbenp.prettier-vscode"
+	]
+}

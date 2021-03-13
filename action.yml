@@ -1,0 +1,15 @@
+name: 'Markdown action: create indexes'
+description: 'Creates indexes pages for a markdown styled wiki'
+inputs:
+  token:
+    description: 'The token nesscary to commit'
+    required: false
+    default: ${{ secrets.GITHUB_TOKEN }}
+  folder:
+    description: 'The folder path to start at',
+    required: false,
+    default: $GITHUB_WORKSPACE
+outputs:
+runs:
+  using: 'node12'
+  main: 'out/action.js'
