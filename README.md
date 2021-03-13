@@ -17,7 +17,7 @@ The folder path to start at, use `${{github.workspace}}`
 
 ## Examples
 
-![example](./assets/example.png)
+![example](https://raw.githubusercontent.com/DaanV2/Markdown-Action-Create-Indexes/main/assets/example.PNG)
 
 ## Example usage
 
