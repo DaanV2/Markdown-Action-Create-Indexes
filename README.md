@@ -20,13 +20,14 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@lastest       
-      - uses: DaanV2/Markdown-Action-Create-Indexes@lastest
+      - uses: actions/checkout@v2      
+      - uses: DaanV2/Markdown-Action-Create-Indexes@v1.5
 
       - name: Commit changes
         run: |
-          git add index.md
-          git add **/index.md
-          git commit -m "auto: Generated markdown index pages"
+          git config user.name bot
+          git config user.email bot@example.com
+          git add .
+          git commit -m "auto: Generated markdown indexes pages"
           git push
 ```
