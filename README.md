@@ -17,7 +17,7 @@ The folder path to start at, use `${{github.workspace}}`
 
 ## Examples
 
-![example](assets/example.png)
+![example](./assets/example.png)
 
 ## Example usage
 
