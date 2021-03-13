@@ -5,12 +5,26 @@ The github action that creates index pages for your project, the changes still n
 ## Inputs
 
 **folder**:
-The folder path to start at
-defaults to: $GITHUB_WORKSPACE
+The folder path to start at, use `${{github.workspace}}`
 
 ## Example usage
 
 ```yml
+# This is a basic workflow to help you get started with Actions
+
+name: Create markdown indexes
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -23,11 +37,12 @@ jobs:
       - uses: actions/checkout@v2.3.4
 
       # Runs a single command using the runners shell
-      - uses: DaanV2/Markdown-Action-Create-Indexes@v1.5.7
+      - uses: DaanV2/Markdown-Action-Create-Indexes@v1.5.9
         with: 
           folder: ${{github.workspace}}
 
       - name: Commit changes
+        continue-on-error: true
         run: |
           cd $GITHUB_WORKSPACE
           git config user.name bot
