@@ -521,7 +521,7 @@ function CreateFolder(folder) {
             if (fs.statSync(subfolder).isDirectory()) {
                 //Create index page, if succesfull we create a reference
                 if (CreateFolder(subfolder)) {
-                    SubFolders.push(`- [${child}](./${child}/index.md)`);
+                    SubFolders.push(`- [${child}](./${encodeURI(child)}/index.md)`);
                 }
             }
             else {
@@ -538,8 +538,8 @@ function CreateFolder(folder) {
         let Name = GetFolderName(folder);
         console.log('writing: ' + filepath);
         let Content = Template.replace(/\{\$HEADER\$\}/gi, Name);
-        Content = Content.replace(/\{\$CATEGORIES\$\}/gi, SubFolders.join('\n\r'));
-        Content = Content.replace(/\{\$DOCUMENTS\$\}/gi, Documents.join('\n\r'));
+        Content = Content.replace(/\{\$CATEGORIES\$\}/gi, SubFolders.join('\r\n'));
+        Content = Content.replace(/\{\$DOCUMENTS\$\}/gi, Documents.join('\r\n'));
         fs.writeFileSync(filepath, Content, WriteOptions);
         return true;
     }
@@ -552,7 +552,7 @@ exports.CreateFolder = CreateFolder;
  * @returns The name of the folder
  */
 function GetFolderName(folderpath) {
-    let LastIndex = folderpath.lastIndexOf('\\');
+    let LastIndex = folderpath.lastIndexOf('/');
     if (LastIndex >= 0) {
         return folderpath.substring(LastIndex, folderpath.length);
     }
