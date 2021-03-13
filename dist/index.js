@@ -554,7 +554,7 @@ exports.CreateFolder = CreateFolder;
 function GetFolderName(folderpath) {
     let LastIndex = folderpath.lastIndexOf('/');
     if (LastIndex >= 0) {
-        return folderpath.substring(LastIndex, folderpath.length);
+        return folderpath.substring(LastIndex + 1, folderpath.length);
     }
     return folderpath;
 }
