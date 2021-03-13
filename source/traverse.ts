@@ -20,6 +20,9 @@ const WriteOptions: fs.WriteFileOptions = {
  * @returns True if the page was made.
  */
 export function CreateFolder(folder: string): boolean {
+	if (folder.includes('.git'))
+		return false;
+
 	let SubFolders: string[] = [];
 	let Documents: string[] = [];
 

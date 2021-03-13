@@ -415,19 +415,16 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const traverse_1 = __nccwpck_require__(784);
 const fs = __importStar(__nccwpck_require__(747));
-const core_1 = __importDefault(__nccwpck_require__(227));
+const corexp = __nccwpck_require__(227);
 //Start code
 try {
     // This should be a token with access to your repository scoped in as a secret.
     // The YML workflow will need to set myToken with the GitHub Secret Token
     // token: ${{ secrets.GITHUB_TOKEN }}
-    const Folder = core_1.default.getInput('folder');
+    const Folder = corexp.getInput('folder');
     var result = false;
     console.log('starting on: ' + Folder);
     if (fs.existsSync(Folder)) {
@@ -441,7 +438,7 @@ try {
     }
     else {
         console.log('failure');
-        core_1.default.setFailed('no pages were created');
+        corexp.setFailed('no pages were created');
     }
 }
 catch (error) {
@@ -450,8 +447,8 @@ catch (error) {
         message = error.message;
     else
         message = JSON.stringify(error);
-    if (core_1.default)
-        core_1.default.setFailed(message);
+    if (corexp)
+        corexp.setFailed(message);
     else {
         console.log(message);
         process.exit(1);
@@ -507,6 +504,8 @@ const WriteOptions = {
  * @returns True if the page was made.
  */
 function CreateFolder(folder) {
+    if (folder.includes('.git'))
+        return false;
     let SubFolders = [];
     let Documents = [];
     //Get childern of folder
