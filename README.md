@@ -37,7 +37,7 @@ jobs:
       - uses: actions/checkout@v2.3.4
 
       # Runs a single command using the runners shell
-      - uses: DaanV2/Markdown-Action-Create-Indexes@v1.5.9
+      - uses: DaanV2/Markdown-Action-Create-Indexes@v1.5.10
         with: 
           folder: ${{github.workspace}}
 
