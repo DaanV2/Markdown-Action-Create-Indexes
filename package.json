@@ -4,7 +4,7 @@
   "description": "The github action that creates index pages for your project",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc -b && ncc build out/action.js --license licenses.txt",    
+    "build": "tsc -b && ncc build out/action.js --license licenses.txt",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
