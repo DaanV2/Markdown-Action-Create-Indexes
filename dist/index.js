@@ -493,7 +493,7 @@ const Template = `# {$HEADER$}
 ## Categories
 {$CATEGORIES$}
 
-## DOCUMENTS
+## Documents
 {$DOCUMENTS$}`;
 const WriteOptions = {
     encoding: 'utf8'
