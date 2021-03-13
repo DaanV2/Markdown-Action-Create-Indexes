@@ -2,9 +2,12 @@
   "name": "markdown-action-create-indexes",
   "version": "1.0.0",
   "description": "The github action that creates index pages for your project",
-  "main": "dist/index.js",
+  "main": "out/action.js",
   "scripts": {
-    "build": "tsc -b && ncc build out/action.js --license licenses.txt",
+    "build": "tsc && ncc build",
+    "format": "prettier --write '**/*.ts'",
+    "format-check": "prettier --check '**/*.ts'",
+    "lint": "eslint src/**/*.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

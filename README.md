@@ -25,6 +25,7 @@ jobs:
 
       - name: Commit changes
         run: |
+          cd $GITHUB_WORKSPACE
           git config user.name bot
           git config user.email bot@example.com
           git add .
