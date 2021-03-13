@@ -1,11 +1,23 @@
 # Markdown-Action-Create-Indexes
 
-The github action that creates index pages for your project, the changes still need to be submitted afterwards
+- [Markdown-Action-Create-Indexes](#markdown-action-create-indexes)
+  - [Inputs](#inputs)
+  - [Examples](#examples)
+  - [Example usage](#example-usage)
+
+The github action that creates index pages for your project, the changes still need to be submitted afterwards.
+
+Its creates a list of each markdown files in the folders and displays it under documents.
+For each sub folder that has documentation, then that folder is displayed in categories.
 
 ## Inputs
 
 **folder**:
 The folder path to start at, use `${{github.workspace}}`
+
+## Examples
+
+![example](assets/example.png)
 
 ## Example usage
 
@@ -51,3 +63,4 @@ jobs:
           git commit -m "auto: Generated markdown indexes pages"
           git push
 ```
+
