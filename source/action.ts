@@ -1,8 +1,7 @@
-import core from '@actions/core';
 import { CreateFolder } from './traverse';
 import * as fs from 'fs';
 
-const corexp = core;
+const corexp = require('@actions/core');
 
 //Start code
 try {

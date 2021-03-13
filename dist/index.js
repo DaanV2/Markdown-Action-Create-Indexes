@@ -415,14 +415,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const core_1 = __importDefault(__nccwpck_require__(227));
 const traverse_1 = __nccwpck_require__(784);
 const fs = __importStar(__nccwpck_require__(747));
-const corexp = core_1.default;
+const corexp = __nccwpck_require__(227);
 //Start code
 try {
     // This should be a token with access to your repository scoped in as a secret.
