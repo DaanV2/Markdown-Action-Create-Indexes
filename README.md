@@ -57,8 +57,6 @@ jobs:
         continue-on-error: true
         run: |
           cd $GITHUB_WORKSPACE
-          git config user.name bot
-          git config user.email bot@example.com
           git add .
           git commit -m "auto: Generated markdown indexes pages"
           git push
