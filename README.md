@@ -57,10 +57,10 @@ jobs:
         continue-on-error: true
         run: |
           cd ${{github.workspace}}
-          git config --global user.email "Bot@Blockception.com"
-          git config --global user.name "Blockception Bot"
+          git config --global user.email "Bot@Example.com"
+          git config --global user.name "DaanV2 Bot"
           git add .
-          git commit -m "auto: Generated typescript includes"
+          git commit -m "auto: Generated markdown indexes"
           git push
 ```
 
