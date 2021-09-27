@@ -6,7 +6,8 @@ branding:
 inputs:
   folder:
     description: The folder path to start at
-    required: true
+    required: false    
+    default: "${{ github.workspace }}"
 runs:
   using: 'node12'
   main: 'dist/index.js'
