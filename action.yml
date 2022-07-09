@@ -6,8 +6,12 @@ branding:
 inputs:
   folder:
     description: The folder path to start at
-    required: false    
+    required: false
     default: "${{ github.workspace }}"
+  filename:
+    description: The name of the file, default to 'index.md'
+    required: false
+    default: index.md
 runs:
   using: 'node12'
   main: 'dist/index.js'
