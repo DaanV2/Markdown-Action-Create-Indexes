@@ -46,10 +46,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v3
 
       # Runs a single command using the runners shell
-      - uses: DaanV2/Markdown-Action-Create-Indexes@v1.5.13
+      - uses: DaanV2/Markdown-Action-Create-Indexes@v1.7.0
         with: 
           folder: ${{github.workspace}}
 
