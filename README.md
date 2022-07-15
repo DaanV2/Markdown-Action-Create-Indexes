@@ -14,6 +14,8 @@ For each sub folder that has documentation, then that folder is displayed in cat
 
 **folder**:
 The folder path to start at, use `${{github.workspace}}`
+**filename**:
+The filename of the index file. default to `index`
 
 ## Examples
 
