@@ -22,9 +22,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@main
 
       # Runs a single command using the runners shell
-      - uses: DaanV2/Markdown-Action-Create-Indexes@v1.5.7
+      - uses: DaanV2/Markdown-Action-Create-Indexes@main
         with: 
           folder: ${{github.workspace}}
