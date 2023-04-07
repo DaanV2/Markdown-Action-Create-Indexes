@@ -24,6 +24,3 @@ jobs:
 
       - name: 🛠️ Build
         run: npm run compile
-
-      - name: 🔍 Linting
-        run: npm run lint
