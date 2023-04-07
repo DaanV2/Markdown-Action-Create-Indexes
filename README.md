@@ -52,10 +52,8 @@ jobs:
       - uses: actions/checkout@v3
 
       # Runs a single command using the runners shell
-      - uses: DaanV2/Markdown-Action-Create-Indexes@v1.7.0
-        with: 
-          folder: ${{github.workspace}}
-          filename: index
+      - name: Generated Markdown Readmes
+        uses: DaanV2/Markdown-Action-Create-Indexes@v1.7.0
 
       - name: Commit changes
         continue-on-error: true
