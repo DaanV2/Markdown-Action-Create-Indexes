@@ -72,5 +72,5 @@ jobs:
   uses: DaanV2/Markdown-Action-Create-Indexes@v2.0.0
   with: 
     folder: ${{github.workspace}}
-    filename: README
+    filename: README.md
 ```
