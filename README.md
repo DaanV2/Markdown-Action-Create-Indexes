@@ -53,7 +53,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Generated Markdown Readmes
-        uses: DaanV2/Markdown-Action-Create-Indexes@v1.7.0
+        uses: DaanV2/Markdown-Action-Create-Indexes@v2.0.0
 
       - name: Commit changes
         continue-on-error: true
@@ -66,3 +66,11 @@ jobs:
           git push
 ```
 
+**With options**
+```yaml
+- name: Generated Markdown Readmes
+  uses: DaanV2/Markdown-Action-Create-Indexes@v2.0.0
+  with: 
+    folder: ${{github.workspace}}
+    filename: README
+```
