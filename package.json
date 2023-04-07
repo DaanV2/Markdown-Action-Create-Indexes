@@ -4,7 +4,7 @@
   "description": "The github action that creates index pages for your project",
   "main": "out/action.js",
   "scripts": {
-    "build": "tsc && ncc build -m",
+    "compile": "tsc && ncc build -m",
     "format": "prettier --write '**/*.ts'",
     "format-check": "prettier --check '**/*.ts'",
     "lint": "eslint src/**/*.ts",
