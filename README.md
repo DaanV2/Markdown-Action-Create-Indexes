@@ -12,8 +12,11 @@ For each sub folder that has documentation, then that folder is displayed in cat
 
 ## Inputs
 
-**folder**: The folder path to start at, use `${{github.workspace}}`  
-**filename**: The filename of the index file. default to `index`
+
+|Parameters|Optional|Description|
+|----------|--------|-----------|
+|`folder`  | ✅ | The folder path to start at, default uses `${{github.workspace}}` |
+|`filename`| ✅ | The filename of the generated file. default to `index` |
 
 ## Examples
 
@@ -52,6 +55,7 @@ jobs:
       - uses: DaanV2/Markdown-Action-Create-Indexes@v1.7.0
         with: 
           folder: ${{github.workspace}}
+          filename: index
 
       - name: Commit changes
         continue-on-error: true
