@@ -1,0 +1,26 @@
+name: 📋 PR
+
+on:
+  pull_request: {}
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    name: 📦🔍 Build Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📦 Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: 🛠️ Setup Node.js Environment
+        uses: actions/setup-node@v3
+        with:
+          cache: npm
+          cache-dependency-path: package-lock.json
+          node-version-file: .nvmrc
+
+      - name: 🛠️ Setup Project
+        run: npm ci
+
+      - name: 🛠️ Build
+        run: npm run compile

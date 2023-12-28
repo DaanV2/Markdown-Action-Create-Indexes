@@ -11,8 +11,10 @@ It creates a list of each markdown file in the folders and displays it under doc
 
 ## Inputs
 
-**folder**:
-The folder path to start at, use `${{ github.workspace }}`
+| Parameters | Optional | Description                                                       |
+| ---------- | -------- | ----------------------------------------------------------------- |
+| `folder`   | ✅        | The folder path to start at, default uses `${{github.workspace}}` |
+| `filename` | ✅        | The filename of the generated file. default to `index`            |
 
 ## Examples
 
@@ -48,9 +50,8 @@ jobs:
       - uses: actions/checkout@v3
 
       # Runs a single command using the runners shell
-      - uses: DaanV2/Markdown-Action-Create-Indexes@v1.7.0
-        with: 
-          folder: ${{github.workspace}}
+      - name: Generated Markdown Readmes
+        uses: DaanV2/Markdown-Action-Create-Indexes@v2.0.0
 
       - name: Commit changes
         continue-on-error: true
@@ -63,3 +64,11 @@ jobs:
           git push
 ```
 
+**With options**
+```yaml
+- name: Generated Markdown Readmes
+  uses: DaanV2/Markdown-Action-Create-Indexes@v2.0.0
+  with: 
+    folder: ${{github.workspace}}
+    filename: README.md
+```
