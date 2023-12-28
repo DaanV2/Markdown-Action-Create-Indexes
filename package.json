@@ -1,6 +1,6 @@
 {
   "name": "markdown-action-create-indexes",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "The github action that creates index pages for your project",
   "main": "out/action.js",
   "scripts": {
