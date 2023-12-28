@@ -24,20 +24,20 @@ export function CreateFolder(folder: string, filename: string): boolean {
   let SubFolders: string[] = [];
   let Documents: string[] = [];
 
-  //Get childern of folder
-  let childern = fs.readdirSync(folder);
+  //Get children of folder
+  let children = fs.readdirSync(folder);
 
-  //If childern is not undefined and has content then process it
-  if (childern && childern.length > 0) {
+  //If children is not undefined and has content then process it
+  if (children && children.length > 0) {
     //Loop over
-    for (let I = 0; I < childern.length; I++) {
+    for (let I = 0; I < children.length; I++) {
       //grab item
-      const child = childern[I];
+      const child = children[I];
       let subfolder = path.join(folder, child);
 
       //if child is an directory or not
       if (fs.statSync(subfolder).isDirectory()) {
-        //Create index page, if succesfull we create a reference
+        //Create index page, if successful we create a reference
 
         if (CreateFolder(subfolder, filename)) {
           SubFolders.push(`- [${child}](./${encodeURI(child)}/${filename})`);
@@ -45,13 +45,15 @@ export function CreateFolder(folder: string, filename: string): boolean {
       } else {
         //If the child is a .md page create a reference
         if (child.endsWith(".md") && child != filename) {
-          Documents.push(`- [${child.substring(0, child.length - 3)}](${encodeURI(child)})`);
+          Documents.push(
+            `- [${child.substring(0, child.length - 3)}](${encodeURI(child)})`
+          );
         }
       }
     }
   }
 
-  //If there are any reference made we create the index page and return succes
+  //If there are any reference made we create the index page and return success
   if (SubFolders.length > 0 || Documents.length > 0) {
     let filepath = path.join(folder, filename);
     let Name = GetFolderName(folder);
@@ -70,15 +72,15 @@ export function CreateFolder(folder: string, filename: string): boolean {
 
 /**
  * Returns the name of the folder
- * @param folderpath The whole folder path
+ * @param folder The whole folder path
  * @returns The name of the folder
  */
-function GetFolderName(folderpath: string): string {
-  let LastIndex = folderpath.lastIndexOf("/");
+function GetFolderName(folder: string): string {
+  let LastIndex = folder.lastIndexOf("/");
 
   if (LastIndex >= 0) {
-    return folderpath.substring(LastIndex + 1, folderpath.length);
+    return folder.substring(LastIndex + 1, folder.length);
   }
 
-  return folderpath;
+  return folder;
 }
