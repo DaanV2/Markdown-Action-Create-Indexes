@@ -1,39 +1,36 @@
-import { CreateFolder } from "./traverse";
-import * as fs from "fs";
+import { existsSync } from "fs";
+import { createFolder } from "./traverse";
 
-const corexp = require("@actions/core");
+const core = require("@actions/core");
 
 //Start code
 try {
   // This should be a token with access to your repository scoped in as a secret.
   // The YML workflow will need to set myToken with the GitHub Secret Token
   // token: ${{ secrets.GITHUB_TOKEN }}
-  const Folder = corexp.getInput("folder");
-  const filename = corexp.getInput("filename");
-
+  const folder = core.getInput("folder");
+  const filename = core.getInput("filename");
+  const content = core.getInput("content");
   var result = false;
 
-  console.log("starting on: " + Folder);
+  console.log("starting on: " + folder);
 
-  if (fs.existsSync(Folder)) {
-    result = CreateFolder(Folder, filename);
+  if (existsSync(folder)) {
+    result = createFolder(folder, { content, filename });
   } else {
-    throw { message: "Couldnt not find folder: " + Folder };
+    throw { message: "Couldn't not find folder: " + folder };
   }
 
   if (result) {
     console.log("success");
   } else {
     console.log("failure");
-    corexp.setFailed("no pages were created");
+    core.setFailed("no pages were created");
   }
 } catch (error) {
-  let message: string;
+  const message: string = error.message ? error.message : JSON.stringify(error);
 
-  if (error.message) message = error.message;
-  else message = JSON.stringify(error);
-
-  if (corexp) corexp.setFailed(message);
+  if (core) core.setFailed(message);
   else {
     console.log(message);
     process.exit(1);

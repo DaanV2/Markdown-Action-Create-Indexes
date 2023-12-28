@@ -11,10 +11,11 @@ It creates a list of each markdown file in the folders and displays it under doc
 
 ## Inputs
 
-| Parameters | Optional | Description                                                       |
-| ---------- | -------- | ----------------------------------------------------------------- |
-| `folder`   | ✅        | The folder path to start at, default uses `${{github.workspace}}` |
-| `filename` | ✅        | The filename of the generated file. default to `index`            |
+| Parameters     | Optional | Description                                                                                                                                    |
+| -------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `folder`       | ✅        | The folder path to start at, default uses `${{github.workspace}}`                                                                              |
+| `filename`     | ✅        | The filename of the generated file. default to `index`                                                                                         |
+| `content-file` | ✅        | The filepath (relative to where the README.md or index.md) where content will be read from and input into index file, default to `.content.md` |
 
 ## Examples
 

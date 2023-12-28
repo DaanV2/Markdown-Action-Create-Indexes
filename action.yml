@@ -12,6 +12,10 @@ inputs:
     description: The name of the file, default to 'index.md'
     required: false
     default: index.md
+  content:
+    description: The content of to add to the index file, default to '.content.md'
+    required: false
+    default: '.content.md'
 runs:
   using: 'node20'
   main: 'dist/index.js'
