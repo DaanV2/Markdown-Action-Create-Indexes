@@ -56,7 +56,6 @@ export function createFolder(
       //if child is an directory or not
       if (statSync(subfolder).isDirectory()) {
         //Create index page, if successful we create a reference
-
         if (createFolder(subfolder, options)) {
           const linkName = child;
           const fileUrl = `./${encodeURI(child)}/${options.filename}`;
@@ -64,7 +63,7 @@ export function createFolder(
           subfolders.push(`- [${linkName}](${fileUrl})`);
         }
         //If the child is a .md page create a reference
-      } else if (child.endsWith(".md") && child != options.filename) {
+      } else if (includeFile(child, options)) {
         const linkName = child.substring(0, child.length - 3);
         const fileUrl = encodeURI(child);
 
@@ -91,11 +90,20 @@ export function createFolder(
   return false;
 }
 
+function includeFile(filename: string, options: ITraverseOptions): boolean {
+  return (
+    filename.endsWith(".md") &&
+    filename != options.filename &&
+    filename != options.content
+  );
+}
+
 function getContent(folder: string, contentsFilepath: string): string {
   if (contentsFilepath === "") return "";
   const filepath = path.join(folder, contentsFilepath);
 
   if (existsSync(filepath) && statSync(filepath).isFile()) {
+    console.log("reading: " + filepath);
     return readFileSync(filepath).toString();
   }
 
