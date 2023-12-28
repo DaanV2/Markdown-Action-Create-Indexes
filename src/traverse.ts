@@ -103,7 +103,7 @@ function getContent(folder: string, contentsFilepath: string): string {
   const filepath = path.join(folder, contentsFilepath);
 
   if (existsSync(filepath) && statSync(filepath).isFile()) {
-    console.log("checking content: " + filepath);
+    console.log("including content: " + filepath);
     return readFileSync(filepath).toString();
   }
 
