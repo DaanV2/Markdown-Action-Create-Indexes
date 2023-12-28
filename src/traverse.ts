@@ -101,9 +101,9 @@ function includeFile(filename: string, options: ITraverseOptions): boolean {
 function getContent(folder: string, contentsFilepath: string): string {
   if (contentsFilepath === "") return "";
   const filepath = path.join(folder, contentsFilepath);
+  console.log("checking content: " + filepath);
 
   if (existsSync(filepath) && statSync(filepath).isFile()) {
-    console.log("reading: " + filepath);
     return readFileSync(filepath).toString();
   }
 
