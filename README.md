@@ -5,15 +5,14 @@
   - [Examples](#examples)
   - [Example usage](#example-usage)
 
-The github action that creates index pages for your project, the changes still need to be submitted afterwards.
+This Github action creates markdown index pages for your project, the changes still need to be submitted afterward.
 
-Its creates a list of each markdown files in the folders and displays it under documents.
-For each sub folder that has documentation, then that folder is displayed in categories.
+It creates a list of each markdown file in the folders and displays it under documents. For each subfolder that has documentation, then that folder is displayed in categories.
 
 ## Inputs
 
 **folder**:
-The folder path to start at, use `${{github.workspace}}`
+The folder path to start at, use `${{ github.workspace }}`
 
 ## Examples
 
