@@ -1,4 +1,3 @@
-import { debug } from "@actions/core";
 import { existsSync } from "fs";
 
 export class Arguments {
