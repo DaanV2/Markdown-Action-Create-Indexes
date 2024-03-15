@@ -1,5 +1,5 @@
-name: 'Markdown action: create indexes'
-description: 'Creates indexes pages for a markdown styled wiki'
+name: "Markdown action: create indexes"
+description: "Creates indexes pages for a markdown styled wiki"
 branding:
   icon: activity
   color: green
@@ -15,15 +15,15 @@ inputs:
   content:
     description: The content of to add to the index file, default to '.content.md'
     required: false
-    default: '.content.md'
+    default: ".content.md"
   include:
     description: The files to additionaly include in the index file, follows grep pattern on the filenames, supports multiple patterns via multi-line string
     required: false
-    default: ''
+    default: ""
   exclude:
     description: The files to exclude from the index file, follows grep pattern on the filenames, supports multiple patterns via multi-line string
     required: false
-    default: ''
+    default: ""
 runs:
-  using: 'node20'
-  main: 'dist/index.js'
+  using: "node20"
+  main: "dist/index.js"

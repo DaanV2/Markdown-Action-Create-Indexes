@@ -16,6 +16,8 @@ It creates a list of each markdown file in the folders and displays it under doc
 | `folder`       | ✅        | The folder path to start at, default uses `${{github.workspace}}`                                                                              |
 | `filename`     | ✅        | The filename of the generated file. default to `index`                                                                                         |
 | `content-file` | ✅        | The filepath (relative to where the README.md or index.md) where content will be read from and input into index file, default to `.content.md` |
+| `include`      | ✅        | The files to additionaly include in the index file, follows grep pattern on the filenames, supports multiple patterns via multi-line string`   |
+| `exclude`      | ✅        | The files to exclude from the index file, follows grep pattern on the filenames, supports multiple patterns via multi-line string              |
 
 ## Examples
 
