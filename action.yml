@@ -16,6 +16,14 @@ inputs:
     description: The content of to add to the index file, default to '.content.md'
     required: false
     default: '.content.md'
+  include:
+    description: The files to additionaly include in the index file, follows grep pattern on the filenames, supports multiple patterns via multi-line string
+    required: false
+    default: ''
+  exclude:
+    description: The files to exclude from the index file, follows grep pattern on the filenames, supports multiple patterns via multi-line string
+    required: false
+    default: ''
 runs:
   using: 'node20'
   main: 'dist/index.js'
