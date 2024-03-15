@@ -1,29 +1,38 @@
-import { existsSync } from "fs";
-import { createFolder } from "./traverse";
-import { getInput, setFailed } from "@actions/core";
+import { Processor } from "./traverse";
+import {
+  debug,
+  error,
+  getInput,
+  getMultilineInput,
+  setFailed,
+} from "@actions/core";
+import { Arguments } from "./arguments";
+import { info } from "console";
 
 //Start code
 try {
   // This should be a token with access to your repository scoped in as a secret.
   // The YML workflow will need to set myToken with the GitHub Secret Token
   // token: ${{ secrets.GITHUB_TOKEN }}
-  const folder = getInput("folder");
-  const filename = getInput("filename");
-  const content = getInput("content");
-  var result = false;
 
-  console.log("starting on: " + folder);
+  const args: Arguments = {
+    contentFilename: getInput("content"),
+    excludes: getMultilineInput("exclude"),
+    includes: getMultilineInput("include"),
+    indexFilename: getInput("filename"),
+    startFolder: getInput("folder"),
+  };
+  Arguments.sanitize(args);
 
-  if (existsSync(folder)) {
-    result = createFolder(folder, { content, filename });
-  } else {
-    throw { message: "Couldn't not find folder: " + folder };
-  }
+  info("starting on: " + args.startFolder);
+  debug(`arguments ${JSON.stringify(args, undefined, 2)}`);
+  const processor = new Processor(args);
+  const result = processor.createFolder(args.startFolder);
 
   if (result) {
-    console.log("success");
+    info("success");
   } else {
-    console.log("failure");
+    error("failure");
     setFailed("no pages were created");
   }
 } catch (error) {
