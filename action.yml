@@ -17,11 +17,11 @@ inputs:
     required: false
     default: ".content.md"
   include:
-    description: The files to additionaly include in the index file, follows grep pattern on the filenames, supports multiple patterns via multi-line string
+    description: The files to additionaly include in the index file, follows glob pattern on the filenames, supports multiple patterns via multi-line string
     required: false
     default: ""
   exclude:
-    description: The files to exclude from the index file, follows grep pattern on the filenames, supports multiple patterns via multi-line string
+    description: The files to exclude from the index file, follows glob pattern on the filenames, supports multiple patterns via multi-line string
     required: false
     default: ""
 runs:
