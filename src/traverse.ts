@@ -40,6 +40,10 @@ export class Processor {
    * @returns True if the index page was created, false if not
    */
   createFolder(folder: string): boolean {
+    if (!this.includeFile(folder)) {
+      return false;
+    }
+
     const subfolders: string[] = [];
     const documents: string[] = [];
     const contents = this.getContent(folder);

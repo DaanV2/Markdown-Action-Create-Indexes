@@ -1,3 +1,4 @@
+import { debug } from "console";
 import { PicomatchOptions, isMatch } from "picomatch";
 
 export class FileFilter {
@@ -25,7 +26,11 @@ export class FileFilter {
    * @returns true if the file is a match, false otherwise
    */
   public isMatch(filename: string): boolean {
-    return this.included(filename) && !this.excluded(filename);
+    const included = this.included(filename);
+    const excluded = this.excluded(filename);
+    debug(`file: ${filename} is included: '${included}', excluded: '${excluded}'`)
+
+    return included && !excluded;
   }
 
   /**
