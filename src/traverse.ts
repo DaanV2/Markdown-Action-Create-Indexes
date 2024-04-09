@@ -40,7 +40,7 @@ export class Processor {
    * @returns True if the index page was created, false if not
    */
   createFolder(folder: string): boolean {
-    if (!this.includeFile(folder)) {
+    if (this.filter.excluded(folder)) {
       return false;
     }
 
