@@ -38,6 +38,6 @@
   },
   "dependencies": {
     "@actions/core": "^1.11.1",
-    "picomatch": "^4.0.2"
+    "picomatch": "^4.0.3"
   }
 }
