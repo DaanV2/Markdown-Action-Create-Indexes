@@ -9,7 +9,7 @@ import {
 import path from "path";
 import { Arguments } from "./arguments";
 import { FileFilter } from "./filter";
-import { debug, info } from "@actions/core";
+import { info } from "@actions/core";
 
 const Template = `# {$HEADER$}
 {$CONTENT$}
@@ -73,7 +73,13 @@ export class Processor {
 
           //If the child is a .md page create a reference
         } else if (this.includeFile(child)) {
-          const linkName = child.substring(0, child.length - 3);
+          let linkName = child;
+          if (!this.options.includeExt) {
+            const lastIndex = child.lastIndexOf(".");
+            if (lastIndex > 0) {
+              linkName = child.substring(0, lastIndex);
+            }
+          }
           const fileUrl = encodeURI(child);
 
           documents.push(`- [${linkName}](${fileUrl})`);

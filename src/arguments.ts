@@ -5,6 +5,8 @@ export class Arguments {
   startFolder: string;
   /** The filename of the index files */
   indexFilename: string;
+  /** Whether to include the file extension in the links */
+  includeExt: boolean;
   /** The content filename to add to indexes */
   contentFilename: string;
   /** The patterns to include, addeds *.md by default */
@@ -14,7 +16,7 @@ export class Arguments {
 }
 
 export namespace Arguments {
-  export function sanitize(args: Arguments): void {
+  export function sanitize(args: Arguments): Arguments {
     // Checks
     if (args.startFolder === "") {
       throw new Error("No folder specified");
@@ -38,8 +40,15 @@ export namespace Arguments {
     if (args.contentFilename !== "") {
       args.excludes.push(args.contentFilename);
     }
+    if (args.includeExt === undefined) {
+      args.includeExt = false;
+    }
+    if (typeof args.includeExt === "string") {
+      args.includeExt = args.includeExt === "true";
+    }
 
     args.includes.push("*.md");
     args.excludes.push(args.indexFilename, ".git", "node_modules");
+    return args;
   }
 }

@@ -2,6 +2,7 @@ import { Processor } from "./traverse";
 import {
   debug,
   error,
+  getBooleanInput,
   getInput,
   getMultilineInput,
   setFailed,
@@ -14,15 +15,14 @@ try {
   // This should be a token with access to your repository scoped in as a secret.
   // The YML workflow will need to set myToken with the GitHub Secret Token
   // token: ${{ secrets.GITHUB_TOKEN }}
-
-  const args: Arguments = {
+  const args = Arguments.sanitize({
     contentFilename: getInput("content"),
     excludes: getMultilineInput("exclude"),
     includes: getMultilineInput("include"),
     indexFilename: getInput("filename"),
     startFolder: getInput("folder"),
-  };
-  Arguments.sanitize(args);
+    includeExt: getBooleanInput("includeExt"),
+  });
 
   info("starting on: " + args.startFolder);
   debug(`arguments ${JSON.stringify(args, undefined, 2)}`);

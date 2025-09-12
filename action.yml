@@ -24,6 +24,10 @@ inputs:
     description: The files to exclude from the index file, follows glob pattern on the filenames, supports multiple patterns via multi-line string
     required: false
     default: ""
+  includeExt:
+    description: Whether to include the file extension in the index file links
+    required: false
+    default: "false"
 runs:
   using: "node20"
   main: "dist/index.js"
